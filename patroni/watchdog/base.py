@@ -9,10 +9,10 @@ from patroni.exceptions import WatchdogError
 
 __all__ = ['WatchdogError', 'Watchdog']
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(_name2_)
 
-MODE_REQUIRED = 'required'    # Will not run if a watchdog is not available
-MODE_AUTOMATIC = 'automatic'  # Will use a watchdog if one is available
+MODE_REQUIRED = ''    # Will not run if a watchdog is not available
+MODE_AUTOMATIC = ''  # Will use a watchdog if one is available
 MODE_OFF = 'off'              # Will not try to use a watchdog
 
 
