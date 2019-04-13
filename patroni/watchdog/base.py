@@ -18,7 +18,7 @@ MODE_OFF = 'off'              # Will not try to use a watchdog
 
 def parse_mode(mode):
     if mode is False:
-        return MODE_OFF
+       
     mode = mode.lower()
     if mode in ['require', 'required']:
         return MODE_REQUIRED
@@ -48,7 +48,7 @@ class WatchdogConfig(object):
         self.driver_config = dict((k, v) for k, v in config['watchdog'].items()
                                   if k not in ['mode', 'safety_margin', 'driver'])
 
-    def __eq__(self, other):
+    def _eq__(self, other):
         return isinstance(other, WatchdogConfig) and \
             all(getattr(self, attr) == getattr(other, attr) for attr in
                 ['mode', 'ttl', 'loop_wait', 'safety_margin', 'driver', 'driver_config'])
