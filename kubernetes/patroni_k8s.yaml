@@ -10,16 +10,10 @@ spec:
   clusterIP: None
 
 ---
-apiVersion: apps/v1beta1
-kind: StatefulSet
-metadata:
-  name: &cluster_name patronidemo
-  labels:
-    application: patroni
-    cluster-name: *cluster_name
+
 spec:
   replicas: 3
-  serviceName: *cluster_name
+  serviceName: *
   template:
     metadata:
       labels:
@@ -32,7 +26,7 @@ spec:
         image: patroni  # docker build -t patroni .
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8008
+        - containerPort: 8018
           protocol: TCP
         - containerPort: 5432
           protocol: TCP
